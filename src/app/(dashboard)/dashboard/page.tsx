@@ -1,8 +1,10 @@
 "use client"
 
 import { useSession } from "next-auth/react"
+import Link from "next/link"
 import { useRouter } from "next/navigation"
 import { useEffect } from "react"
+
 
 const DashboardPage = () => {
   const { data: session, status } = useSession()
@@ -65,8 +67,14 @@ const DashboardPage = () => {
           </div>
         </div>
 
-      </div>
-
+      
+      <Link
+        href="/doctors"
+        className="inline-block bg-emerald-500 hover:bg-emerald-600 text-white font-medium px-6 py-3 rounded-xl transition-colors"
+      >
+        Find a Doctor →
+      </Link>
+    </div>
     </div>
   )
 }

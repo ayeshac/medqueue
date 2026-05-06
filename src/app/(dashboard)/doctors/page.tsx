@@ -24,7 +24,7 @@ const DoctorsContent = () => {
   const searchParams = useSearchParams()
   const pathName = usePathname()
   const [search, setSearch] = useState('')
-  const debouncedSearch = useDebounce(search, 300)
+  const debouncedSearch = useDebounce(search, 150)
   const [selectedDoctor, setSelectedDoctor] = useState<Doctor | null>(null)
   const page = parseInt(searchParams.get('page') ?? '1')
 

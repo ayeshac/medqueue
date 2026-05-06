@@ -1,6 +1,5 @@
 "use client"
 
-import AnalyticsPage from "@/app/analytics/page"
 import { useSession } from "next-auth/react"
 import { useRouter } from "next/navigation"
 import { useEffect } from "react"
@@ -25,7 +24,7 @@ const DashboardPage = () => {
 
   return (
     <div className="min-h-screen bg-gray-900 p-8">
-       <div className="max-w-4xl mx-auto">
+      <div className="max-w-4xl mx-auto">
 
         {/* Header */}
         <div className="mb-8">
@@ -66,8 +65,8 @@ const DashboardPage = () => {
           </div>
         </div>
 
-      </div> 
-     
+      </div>
+
     </div>
   )
 }

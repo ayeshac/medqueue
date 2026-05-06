@@ -38,23 +38,23 @@ const AnalyticsPage = () => {
 
     // 4 — shape the data for doughnut chart
     const doughnutData = {
-        labels: data?.byStatus.map((s: any) => s.status),
+        labels: data?.byStatus.map((s: { status: string; _count: { status: number } }) => s.status),
         datasets: [{
-            data: data?.byStatus.map((s: any) => s._count.status),
+            data: data?.byStatus.map((s: { status: string; _count: { status: number } }) => s._count.status),
             backgroundColor: ['#F59E0B', '#3B82F6', '#10B981', '#EF4444', '#8B5CF6'],
         }]
     }
     const barData = {
-        labels: data?.byDoctor.map((d: any) => d.doctorId),
+        labels: data?.byDoctor.map((d: { doctorId: string; _count: { doctorId: number } }) => d.doctorId),
         datasets: [{
             label: 'Appointments',
-            data: data?.byDoctor.map((d: any) => d._count.doctorId),
+            data: data?.byDoctor.map((d: { doctorId: string; _count: { doctorId: number } }) => d._count.doctorId),
             backgroundColor: '#3B82F6',
         }]
     }
 
     const dateCounts: Record<string, number> = {}
-    data?.recentAppointments.forEach((apt: any) => {
+    data?.recentAppointments.forEach((apt: { createdAt: string }) => {
         const date = new Date(apt.createdAt).toLocaleDateString()
         dateCounts[date] = (dateCounts[date] ?? 0) + 1
     })

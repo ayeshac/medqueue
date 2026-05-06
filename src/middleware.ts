@@ -11,9 +11,9 @@ export default auth((req) => {
   const isOnAnalytics = pathname.startsWith("/analytics")
   const role = session?.user.role
 
-  // if (!isLoggedIn && (isOnDashboard || isOnAnalytics)) {
-  //   return NextResponse.redirect(new URL("/login", req.url))
-  // }
+  if (!isLoggedIn && (isOnDashboard || isOnAnalytics)) {
+    return NextResponse.redirect(new URL("/login", req.url))
+  }
 
   if (isOnLogin && isLoggedIn) {
     return NextResponse.redirect(new URL("/dashboard", req.url))

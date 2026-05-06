@@ -15,7 +15,7 @@ const BookingModal = ({doctorId,clinicId,onClose}:BookingModalProps) => {
         resolver:zodResolver(AppointmentFormSchema)
     })
 
-    const { mutate, isPending, isError, isSuccess } = useMutation({
+    const { mutate, isPending } = useMutation({
         mutationFn: async (data: AppointmentFormData & { doctorId: string, clinicId: string }) => {
           const res = await fetch('/api/appointments', {
             method: 'POST',
